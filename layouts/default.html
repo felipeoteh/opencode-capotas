@@ -18,8 +18,27 @@
         {{ tray.analytics }}
         {{ googleTagManager.header(pages.current, tagManagerData) }}
 
+        {# Theme Virtualiti  #}
+        <link rel="stylesheet" href="{{ asset('css/virtualiti.css') }}">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#141729',
+                            secundary: "#00A1E1",
+                        }
+                    }
+                }
+            }
+        </script>
+
+    
+
     </head>
-    <body>
+    <body class="bg-[#F8F8F8]">
 
         {{ googleTagManager.top(pages.current, tagManagerData) }}
         {% element 'snippets/modals-theme' %}
@@ -27,7 +46,6 @@
         <div class="overlay-shadow"></div>
         <div class="application">
 
-            {% element 'snippets/menu-mobile' %}
             {% element 'header' %}
 
             <main class="site-main">

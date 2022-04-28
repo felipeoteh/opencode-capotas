@@ -3,35 +3,28 @@
 {% set phone = Translation('ag_telefone_1') %}
 {% set phone2 = Translation('ag_telefone_2') %}
 
-<footer class="footer {% if 'home' not in pages.current %} with-border {% endif %}">
-
-    {% if settings.news_active %}
-    <div class="footer-main footer-padding">
-        <div class="container"> 
+{% if settings.news_active %}
+    <div class="bg-primary">
+        <div class="w-full max-w-screen-xl m-auto flex items-center justify-between text-white py-8 gap-12"> 
             
-            <div class="newsletter flex justify-between align-center">
+            <div class="info flex flex-col">
+                <h4 class="text-secundary uppercase tracking-wide text-[1.8rem] font-medium">NEWSLETTER</h4>
+                <p>Cadastre seu e-mail e fique por dentro das novidades e promoções! </p>
+            </div>
 
-                <div class="info flex align-center">
-                    <div class="text">
-                        <div class="first">Cadastre-se em nossa newsletter</div>
-                        <div class="last">e receba novidades e promo&ccedil;&otilde;es</div>
-                    </div>
-                </div>
-
-                <form class="form" action="/mvc/store/newsletter/" method="post">
-                    <input type="hidden" name="loja" value="{{ store.id }}">
-                    <input type="email" class="field" name="email" placeholder="Digite seu e-mail" required spellcheck="false" autocomplete="off">
-                    <button type="submit" class="button news-button" title="Cadastrar" aria-label="Cadastrar">
-                        <span>Cadastre-se</span>
-                        <i class="icon icon-arrow-right"></i>
-                    </button>
-                </form>
-
-            </div>            
+            <form class="flex gap-4 flex-1" action="/mvc/store/newsletter/" method="post">
+                <input type="hidden" name="loja" value="{{ store.id }}">
+                <input type="email" class="p-2 rounded bg-white flex-1" name="email" placeholder="E-mail" required spellcheck="false" autocomplete="off">
+                <button type="submit" class="hover:opacity-80 p-2 rounded bg-secundary text-white" title="Cadastrar" aria-label="Cadastrar">
+                    <span>Cadastrar</span>
+                </button>
+            </form>
 
         </div>
     </div>
-    {% endif %}
+{% endif %}
+
+<footer class="footer {% if 'home' not in pages.current %} with-border {% endif %}">
 
     <div class="cols">
         <div class="container flex justify-between f-wrap">

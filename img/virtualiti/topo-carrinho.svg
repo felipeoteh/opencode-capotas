@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.456" height="27.347" viewBox="0 0 26.456 27.347">
+  <g id="topo-carrinho" transform="translate(-6.913 0.001)">
+    <g id="Grupo_3" data-name="Grupo 3" transform="translate(6.913 -0.001)">
+      <g id="Grupo_2" data-name="Grupo 2" transform="translate(0 0)">
+        <circle id="Elipse_1" data-name="Elipse 1" cx="3.233" cy="3.233" r="3.233" transform="translate(7.29 20.881)" fill="#f8f8f8"/>
+        <path id="Caminho_44" data-name="Caminho 44" d="M269.73,324.1h0a3.233,3.233,0,1,0,3.233,3.233A3.233,3.233,0,0,0,269.73,324.1Z" transform="translate(-249.773 -303.217)" fill="#f8f8f8"/>
+        <path id="Caminho_45" data-name="Caminho 45" d="M32.379,17.582H15.523l-.33-1.913H29.047a.99.99,0,0,0,.924-.627l3.3-8.313a.99.99,0,0,0-.924-1.352H13.477L12.686.824A.99.99,0,0,0,11.7,0H7.9a.99.99,0,0,0,0,1.979h2.969l2.837,16.757a.99.99,0,0,0,.99.825H32.379a.99.99,0,1,0,0-1.979Z" transform="translate(-6.913 0.001)" fill="#f8f8f8"/>
+      </g>
+    </g>
+  </g>
+</svg>

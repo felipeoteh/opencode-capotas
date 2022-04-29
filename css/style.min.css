@@ -8794,8 +8794,7 @@ fieldset {
 .footer {
     background: var(--color_footer_bg);
     color: var(--color_footer_second_font);
-    margin-top: 1.875rem;
-    padding: 20px 0 28px
+    padding: 20px 0 28px;
 }
 
 .footer .footer-main .logo img {
@@ -8921,14 +8920,20 @@ fieldset {
     margin-bottom: 8px
 }
 
+@media(max-width:768px){
+    .footer .title{
+        font-size: 1.5rem;
+    }
+}
+
 .footer .payment-list+.title {
     margin-top: 15px
 }
 
 .footer .list a {
-    font-size: .87rem;
     font-weight: 400;
-    display: block;
+    display: flex;
+    gap: .25rem;
     line-height: 1.5;
     padding: 5px 0;
     transition: .2s ease-out
@@ -8940,7 +8945,7 @@ fieldset {
 
 .footer .list a:hover,
 .footer .social-media .icon:hover {
-    opacity: .8
+    color: var(--secundary);
 }
 
 .footer .list .icon,
@@ -8953,7 +8958,7 @@ fieldset {
 
     .footer .payment-list,
     .footer .security-seals {
-        max-width: 192px
+        max-width: 172px
     }
 }
 

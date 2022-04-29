@@ -3,19 +3,33 @@
 {% set phone = Translation('ag_telefone_1') %}
 {% set phone2 = Translation('ag_telefone_2') %}
 
+{% if settings.txtFooter %}
+
+    <div class="w-full max-w-screen-xl m-auto flex flex-col md:flex-row items-center justify-between text-white p-4 py-8 gap-12">
+
+        <img src="{{ themePath }}img/virtualiti/rodape-Logo_MAP-horizontal-cor.svg" alt="">
+
+        <p class="txtFooter text-[13px] text-[#707070]">
+            {{ settings.txtFooter }}
+        </p>
+
+    </div>
+
+{% endif %}
+
 {% if settings.news_active %}
-    <div class="bg-primary">
-        <div class="w-full max-w-screen-xl m-auto flex items-center justify-between text-white py-8 gap-12"> 
+    <div class="bg-[#2E324E]">
+        <div class="w-full max-w-screen-xl m-auto flex flex-col md:flex-row items-center justify-between text-white p-12 md:p-4 py-8 gap-6 md:gap-12"> 
             
-            <div class="info flex flex-col">
+            <div class="info flex flex-col text-center">
                 <h4 class="text-secundary uppercase tracking-wide text-[1.8rem] font-medium">NEWSLETTER</h4>
                 <p>Cadastre seu e-mail e fique por dentro das novidades e promoções! </p>
             </div>
 
-            <form class="flex gap-4 flex-1" action="/mvc/store/newsletter/" method="post">
+            <form class="w-full flex gap-4 flex-1 flex-col md:flex-row items-center" action="/mvc/store/newsletter/" method="post">
                 <input type="hidden" name="loja" value="{{ store.id }}">
-                <input type="email" class="p-2 rounded bg-white flex-1" name="email" placeholder="E-mail" required spellcheck="false" autocomplete="off">
-                <button type="submit" class="hover:opacity-80 p-2 rounded bg-secundary text-white" title="Cadastrar" aria-label="Cadastrar">
+                <input type="email" class="w-full p-2 rounded bg-white flex-1" name="email" placeholder="E-mail" required spellcheck="false" autocomplete="off">
+                <button type="submit" class="max-w-[128px] hover:opacity-80 p-2 rounded bg-secundary text-white" title="Cadastrar" aria-label="Cadastrar">
                     <span>Cadastrar</span>
                 </button>
             </form>
@@ -25,137 +39,160 @@
 {% endif %}
 
 <footer class="footer {% if 'home' not in pages.current %} with-border {% endif %}">
+    
+    <div class="w-full max-w-screen-xl m-auto flex flex-col md:flex-row items-start justify-between p-8 md:p-4 gap-6 md:gap-4">
 
-    <div class="cols">
-        <div class="container flex justify-between f-wrap">
+        <div class="box box-infos">
+            <div class="title">Atendimento</div>
+            <div class="overflow">
+                <ul class="list text-xl md:text-sm"> 
 
-            <div class="box logo-box">
-                {% if settings.logo %}
-                    <a class="logo" href="{{ store.url }}" title="{{ store.name }}" aria-label="{{ store.name }}">
-                        <img src="{{ themePath }}{{ settings.logo }}" alt="{{ store.name }}" width="222" height="36" />
-                    </a>
-                {% else %}
-                    <a class="logo" href="{{ store.url }}" title="{{ store.name }}">
-                        <span class="title-store">{{ store.name }}</span>
-                    </a>
-                {% endif %}
+                    {% if whatsappNumber %}
+                    <li>
+                        {% element 'snippets/whatsapp' { 'number': whatsappNumber, 'include_text' : false } %}
+                    </li>
+                    {% endif %}
 
-                <div class="social-media flex align-center">
-                    {% element 'snippets/social-media' %}
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="title">Institucional {{ icon }}</div>
-                <div class="overflow">
-                    <ul class="list">
-                        {% for custom in pages.custom %}
-                        <li>
-                            <a href="{{ custom.url }}" title="{{ custom.name }}">{{ custom.name }}</a>
-                        </li>
-                        {% endfor %}
-                        <li>
-                            <a href="{{ links.contact }}" title="Fale Conosco">Fale Conosco</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="box box-infos">
-                <div class="title">Atendimento {{ icon }}</div>
-                <div class="overflow">
-                    <ul class="list"> 
-
-                        {% if phone %}
-                        {% set link = phone | replace({'(': '', ')': '', '-': '', ' ': ''}) %}
-                        <li>
-                            <a href="tel:{{ link }}" title="Telefone: {{ phone }}">
-                                <i class="icon icon-phone v-align-middle"></i>
-                                {{ phone }}
-                            </a>
-                        </li>
-                        {% endif %}
-                        {% if phone2 %}
-                        {% set link = phone2 | replace({'(': '', ')': '', '-': '', ' ': ''}) %}
-                        <li>
-                            <a href="tel:{{ link }}" title="Telefone: {{ phone2 }}">
-                                <i class="icon icon-phone v-align-middle"></i>
-                                {{ phone2 }}
-                            </a>
-                        </li>
-                        {% endif %}
-
-                        {% if whatsappNumber %}
-                        <li>
-                            {% element 'snippets/whatsapp' { 'number': whatsappNumber, 'include_text' : false } %}
-                        </li>
-                        {% endif %}
-                        
-                        {% if email %}
-                        <li>
-                            <a href="mailto:{{ email }}" title="Email: {{ email }}">
-                                <i class="icon icon-email v-align-middle"></i>
-                                {{ email }}
-                            </a>
-                        </li>
-                        {% endif %}
-
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="box">
-
-                {% if paymentMethods.order or paymentMethods.credit %}
-                    <div class="title">Formas de pagamento {{ icon }}</div>
-                    {% element 'snippets/payment-list' %}
-                {% endif %}
-
-                <div class="title">Selos de Seguran&ccedil;a {{ icon }}</div>
-                <ul class="security-seals flex f-wrap">                    
-
-                    <li class="google-seal">
-                        <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank" rel="noreferrer noopener" title="Google Safe Browsing">
-                            <span class="icon icon-shield vertical-align"></span>
-                            <span class="icon icon-google vertical-align""></span>
-
+                    {% if phone %}
+                    {% set link = phone | replace({'(': '', ')': '', '-': '', ' ': ''}) %}
+                    <li>
+                        <a href="tel:{{ link }}" title="Telefone: {{ phone }}">
+                            <img src="{{ themePath }}img/virtualiti/rodape_telefone.svg" alt="">
+                            {{ phone }}
                         </a>
                     </li>
-
-                    {% if seals.ebit %}
-                        <li class="ebit-seal">
-                            {{ seals.ebit }}
-                        </li>
+                    {% endif %}
+                    {% if phone2 %}
+                    {% set link = phone2 | replace({'(': '', ')': '', '-': '', ' ': ''}) %}
+                    <li>
+                        <a href="tel:{{ link }}" title="Telefone: {{ phone2 }}">
+                            <img src="{{ themePath }}img/virtualiti/rodape_telefone.svg" alt="">
+                            {{ phone2 }}
+                        </a>
+                    </li>
                     {% endif %}
 
-                    {% if seals.hackersafe %}
-                        <li class="loja-protegida-seal">
-                            {{ seals.hackersafe }}
-                        </li>
+                    {% if email %}
+                    <li>
+                        <a href="mailto:{{ email }}" title="Email: {{ email }}" class="flex gap-2">
+                            <img src="{{ themePath }}img/virtualiti/rodape_email.svg" alt="">
+                            {{ email }}
+                        </a>
+                    </li>
                     {% endif %}
+
+                    
+                    <li class="flex gap-2 items-center mt-4" >
+                        <div class="title m-0">Siga-nos</div>
+                        <ul class="flex gap-2 items-center">
+                            <li><img src="{{ themePath }}img/virtualiti/rodape_facebook.svg" alt=""></li>
+                            <li><img src="{{ themePath }}img/virtualiti/rodape_insta.svg" alt=""></li>
+                        </ul>
+                    </li>
+
 
                 </ul>
-
             </div>
+        </div>
+
+        <div class="box">
+            <div class="title">Institucional</div>
+            <div class="overflow">
+                <ul class="list text-xl md:text-sm">
+                    {% for custom in pages.custom %}
+                    <li>
+                        <a href="{{ custom.url }}" title="{{ custom.name }}">{{ custom.name }}</a>
+                    </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{{ links.contact }}" title="Fale Conosco">Fale Conosco</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="title">Ajuda e Suporte</div>
+            <div class="overflow">
+                <ul class="list text-xl md:text-sm">
+                    {% for custom in pages.custom %}
+                    <li>
+                        <a href="{{ custom.url }}" title="{{ custom.name }}">{{ custom.name }}</a>
+                    </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{{ links.contact }}" title="Fale Conosco">Fale Conosco</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="box">
+
+            <!-- {% if paymentMethods.order or paymentMethods.credit %}
+                <div class="title">Formas de pagamento</div>
+                {% element 'snippets/payment-list' %}
+            {% endif %} -->
+
+            <div class="title">Formas de pagamento</div>
+            <ul class="flex flex-wrap gap-2 items-center max-w-[180px]">
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-master.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-visa.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-ame.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-hiper.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-elo.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-boleto.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-dinners.png" alt=""></li>
+                <li><img class="w-[46px]" src="{{ themePath }}img/virtualiti/pagamento-pix.png" alt=""></li>     
+            </ul>
 
         </div>
-    </div>
 
-    <div class="copy">
-        <div class="container flex align-center flex-column">
+        <div class="box">
             
-            <div class="text">{{ Translation('ag_mensagem_rodape') }}</div>
+            <div class="title">Certificados e Seguranca</div>
+            <ul class="security-seals flex f-wrap">                    
 
-            <div class="tray">
-                {% element 'snippets/credits' %}
-                {% if tray.theme_configs.custom_theme_preview %}
-                    <div class="mode-preview">
-                        <a href="/mvc/store/home/reset_opencode_preview?loja={{ store.id }}">Sair modo preview</a>
-                    </div>
+                <li class="google-seal">
+                    <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank" rel="noreferrer noopener" title="Google Safe Browsing">
+                        <span class="icon icon-shield vertical-align"></span>
+                        <span class="icon icon-google vertical-align""></span>
+                    </a>
+                </li>
+
+                {% if seals.ebit %}
+                    <li class="ebit-seal">
+                        {{ seals.ebit }}
+                    </li>
                 {% endif %}
-            </div>
 
+                {% if seals.hackersafe %}
+                    <li class="loja-protegida-seal">
+                        {{ seals.hackersafe }}
+                    </li>
+                {% endif %}
+
+            </ul>
         </div>
-    </div>
 
+    </div>
+    
+    <div class="w-full max-w-screen-xl m-auto flexjustify-between p-4">
+        
+        <div class="part-d">
+            <ul class="flex gap-8">
+                <li class="flex-1">
+                    <p class="text-[11px] text-[#BFBFBF] text-left">{{ Translation('ag_mensagem_rodape') }}</p>
+                </li>
+                <li class="poweredBy">
+                    <a href="https://virtualiti.com.br/">
+                        <img class="" src="{{ themePath }}img/virtualiti/logo-virtualiti.svg" alt="">
+                    </a>
+                    {% element 'snippets/credits' %}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+        
 </footer>

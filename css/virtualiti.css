@@ -160,6 +160,10 @@ header .logo{
   background-position: 95% 1rem;
 }
 
+.txtFooter b{
+  color: var(--secundary);
+}
+
 .menuBox .container{
   max-width: initial !important;
   padding: initial !important;
@@ -370,15 +374,15 @@ footer:before{
 }
 
 .part-d{
-  padding: 1rem;
-  margin-top: 1rem;
+  padding: 1rem 0;
   border-top: thin solid #F2F2F2;
   border-bottom: thin solid #F2F2F2;
+  line-height: 1.3;
 }
 
 .poweredBy{
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
   font-size: .8rem;
   color: #BFBFBF;
   align-items: center;
@@ -392,13 +396,12 @@ footer:before{
 .poweredBy #NavLogoTray .logotray-message a{
   width: 3.1rem;
   height: 2rem;
-  background: url("https://images.tcdn.com.br/files/1091184/themes/7/img/logo-tray-2.svg");
+  background: url("../img/virtualiti/logo-tray.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   font-size: 0 !important;
   display: block;
-  margin-top: -1rem;
 }
 
 /* svg.coracaoAssinatura{
@@ -1257,7 +1260,6 @@ footer:before{
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0 2rem 1rem;
-    background: #fff !important;
     max-width: 1280px;
     margin: 0 auto;
   }

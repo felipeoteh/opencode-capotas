@@ -2,7 +2,7 @@
 {% set mobile = mobile | default(false) %}
 
 {% if banner %}
-    <div class="container">
+    <div class="container max-w-screen-xl m-auto">
         <div class="banner-line {% if mobile %} mobile {% else %} desk {% endif %}">
 
             {% element 'snippets/banner' {

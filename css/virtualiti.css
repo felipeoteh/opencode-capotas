@@ -94,6 +94,10 @@ header .logo{
   color: #fff;
 }
 
+.product-installments br{
+  display: none;
+}
+
 .blockB :is(.attendance ul li p a, .myAccount ul li p a){
   color: #fff;
 }
@@ -564,8 +568,6 @@ footer:before{
 }
 
 .myAccount > ul li ul li:first-child a{
-  background: var(--success);
-  border-radius: 10rem;
   padding: .5rem 1rem;
   color: #fff;
   display: flex;
@@ -582,8 +584,6 @@ footer:before{
 .noAccount{
   flex-direction: column;
   text-align: center;
-  border-bottom: thin solid var(--colorText2);
-  padding-bottom: .5rem;
 }
 
 .noAccount a{
@@ -614,11 +614,6 @@ footer:before{
 
 .section-insta a{
   color: #212529;
-}
-
-.section-showcase{
-  padding: 1rem 0 !important;
-  margin: initial !important;
 }
 
 .related-title img{
@@ -1330,7 +1325,7 @@ footer:before{
   }
 
   .menuBox .nav ul > li + li{
-    border-top: thin solid var(--colorText2);
+    border-top: thin solid rgb(119, 124, 157);
   }
 
   .menuBox.Open{
@@ -1338,12 +1333,15 @@ footer:before{
     flex-direction: column;
     position: fixed;
     z-index: 999;
-    background: #fff;
     width: 87vw;
     top: 0;
-    box-shadow: 0 0 15px -3px rgba(0,0,0,.6);
+    box-shadow: 0 0 15px -3px rgba(29,32,54,.6);
     height: 100vh;
     padding: 0;
+  }
+
+  .nav .list>li>a{
+    justify-content: flex-start;
   }
 
   .menuBox.Open:before{
@@ -1354,7 +1352,7 @@ footer:before{
     top: 0;
     left: 0;
     z-index: -1;
-    background: rgba(255,255,255, .7);
+    background: rgba(29,32,54,.6);
   }
 
   .btFechar{

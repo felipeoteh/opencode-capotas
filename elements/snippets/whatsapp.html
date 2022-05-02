@@ -32,7 +32,7 @@
         {% set link = "https://wa.me/55#{whatsapp_number_unformatted}" %}
     {% endif %}
 
-    <a href="{{ link }}" target="_blank" rel="noopener noreferrer" title="WhatsApp: {{ number }}">
+    <a href="{{ link }}" target="_blank" rel="noopener noreferrer" title="WhatsApp: {{ number }}" class="flex items-center gap-2">
 
         <img src="{{ themePath }}img/virtualiti/rodape_whatsapp.svg" alt="">
         <!-- {% if include_icon %}

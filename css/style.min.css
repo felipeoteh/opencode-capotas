@@ -499,7 +499,6 @@
     width: 100%;
     max-width: 1210px;
     margin: 0 auto;
-    padding: 0 .938rem
 }
 
 .row {
@@ -3434,7 +3433,7 @@ header .header-search-wrapper .input-search::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 72px;
+    height: auto;
     padding: 0 12px;
     font-size: 1.125rem;
     font-weight: 400;
@@ -4008,7 +4007,7 @@ header .header-search-wrapper .input-search::placeholder {
 
 .product .product-tags-circle {
     position: absolute;
-    top: .25rem;
+    top: .7rem;
     left: 1.25rem;
     display: flex;
     flex-direction: column
@@ -4122,7 +4121,7 @@ header .header-search-wrapper .input-search::placeholder {
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color_primary_medium)
+    color: var(--color_secondary_medium);
 }
 
 .product .product-price .product-installments {
@@ -4151,9 +4150,7 @@ header .header-search-wrapper .input-search::placeholder {
 
 .product .actions {
     bottom: 20px;
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
+    position: relative;
     transition: .2s ease-in-out;
     width: 100%;
     left: 0;
@@ -4161,11 +4158,6 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 @media (min-width:768px) {
-    .product.show-down:hover {
-        padding-bottom: 35px;
-        margin-bottom: -35px;
-        transition-delay: 0s
-    }
 
     .product.show-down:hover .product-rating {
         opacity: 0
@@ -4175,7 +4167,7 @@ header .header-search-wrapper .input-search::placeholder {
         transform: translateY(-25px)
     }
 
-    .product:hover .actions {
+    .product .actions {
         opacity: 1;
         visibility: visible;
         transition-delay: .2s

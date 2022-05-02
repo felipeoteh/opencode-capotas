@@ -57,8 +57,8 @@
 {# First showcase #}
 {% element 'showcase' {
     'rand'     : settings.showcase_rand_products,
-    'type'     : settings.showcase_type_1,
-    'quantity' : settings.showcase_quantity_1
+    'type'     : "new",
+    'quantity' : 16
 } %}
 
 <!-- {% element 'snippets/banner-grid' %}     -->
@@ -66,11 +66,20 @@
 {# Second showcase #}
 {% element 'showcase' {
     'rand'     : settings.showcase_rand_products,
-    'type'     : settings.showcase_type_2,
-    'quantity' : settings.showcase_quantity_2
+    'type'     : "top_seller",
+    'quantity' : "16"
 } %}
 
 {% element 'snippets/banner-line' { 'banner_id': 'extra5' } %}
+
+<section class="bg-[#EBEBEB] py-6">
+{# Tertiary showcase #}
+{% element 'showcase' {
+    'rand'     : settings.showcase_rand_products,
+    'type'     : "featured",
+    'quantity' : "16"
+} %}
+</section>
 
 {% for pages in pages.custom %}
     {% if pages.info == "depoimentos_de_clientes" and settings.show_reviews %}
@@ -78,7 +87,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="title-section">
-                        Depoimentos
+                        O que nossos clientes estão dizendo
                     </h2>
                 </div>
                 {% element 'CustomerReview.reviews' %}

@@ -123,5 +123,33 @@
         {{ store.chat }}
         {{ googleTagManager.bottom(pages.current, tagManagerData) }}
 
+        <script>
+
+            $(function(){
+
+                var iconMenu = $(".menuMobile img");
+
+                iconMenu.bind("click", function(){
+                    $(this).toggleClass("openMenu");
+                    $(".menuBox").toggleClass("Open");
+                });
+
+                $(".boxMenuMobile .categoria-id.com-filho").each(function(){
+                    if($(this).find(".main_menu__nivel-dois").html()) {
+                        $(this).append("<span class='arrowMenu'></span>");  
+                    }
+                });
+
+                var handArrowMenuMobile = $(".boxMenuMobile .arrowMenu");
+
+                handArrowMenuMobile.bind("click", function(){
+                    $(this).closest(".categoria-id").find(".main_menu__nivel-dois").toggleClass("openNivelDois");
+                    $(this).toggleClass("rotateArrow");
+                });
+
+            });
+
+        </script>
+
     </body>
 </html>

@@ -407,7 +407,6 @@
 
             } else {
 
-               
                 $('.dep_lista').changeElementType('div');
                 $('.dep_item').changeElementType('div');
                 
@@ -779,7 +778,7 @@
                 $("#form-comments .submit-review").on("click", function(e){
 
                     if(!$("#form-comments .stars .starn.star-on").length) {
-                        var textError = 'Avaliação do produto obrigatória, dê sua avaliação por favor';
+                        var textError = 'Avaliaï¿½ï¿½o do produto obrigatï¿½ria, dï¿½ sua avaliaï¿½ï¿½o por favor';
                         $("#div_erro .blocoAlerta").text(textError).show();
                         setTimeout(() => {
                             $("#div_erro .blocoAlerta").hide();
@@ -872,7 +871,7 @@
                                 }
 
                                 var prazo = shippingRates.find('table th:last-child').text();
-                                if (prazo == 'Prazo de Entrega e Observações:'){
+                                if (prazo == 'Prazo de Entrega e Observaï¿½ï¿½es:'){
                                     shippingRates.find('table th:last-child').html('Prazo');
                                 }
                                 shippingRates = shippingRates.children();

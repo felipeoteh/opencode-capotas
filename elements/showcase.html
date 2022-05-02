@@ -1,6 +1,6 @@
 {% if type %}
 
-    {% set quantity = quantity | default(8) %}
+    {% set quantity = 16 | default(8) %}
 
     {% if type == 'top_seller' %}
 
@@ -30,12 +30,11 @@
     {% endif %}
 
     {% if products | length > 0 %}
-        <div class="section-showcase">
+        <div class="section-showcase max-w-screen-xl m-auto p-4">
             <div class="container">
 
                 <div class="section-header">
                     <h2 class="title-section">
-
                         {% element 'snippets/title-showcase' { 'type': type } %}
                     </h2>
                 </div>

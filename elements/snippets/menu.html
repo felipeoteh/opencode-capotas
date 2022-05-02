@@ -10,7 +10,7 @@
 
 <nav class="nav">
     <div class="container">
-        <ul class="list flex gap-[4rem] {% if categories | length > 4 %} justify-between {% else %} justify-center {% endif %}">
+        <ul class="list flex md:gap-[4rem] {% if categories | length > 4 %} justify-between {% else %} justify-center {% endif %}">
 
             {% for category in show_categories %}
                 <li class="first-level {%- if category.children %} sub {%- endif %}">

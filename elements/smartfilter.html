@@ -34,7 +34,7 @@
             {% if filter_type == 'prices' %}
 
                 <section class="filter-block filter-block-{{ filter_type }}">
-                    <h4 class="filter-title">
+                    <h4 class="filter-title uppercase">
                         {{ filter_titles[filter_type] }}
                     </h4>
                     <ul class="filter-list" {% if settings.show_filter_type_closed %} style="display: none" {% endif %}>
@@ -68,7 +68,7 @@
                 {% for property in filter_data.values %}
                     <section class="filter-block filter-block-properties" data-filter-type="{{ property.key | lower }}">
 
-                        <h4 class="filter-title">
+                        <h4 class="filter-title uppercase">
                             {{ property.key }}
                         </h4>
                         <ul class="filter-list" {% if settings.show_filter_type_closed %} style="display: none;" {% endif %}>
@@ -100,7 +100,7 @@
 
                 <section class="filter-block filter-block-{{ filter_type }}">
 
-                    <h4 class="filter-title">
+                    <h4 class="filter-title uppercase">
                         {{ filter_titles[filter_type] }}
                     </h4>
                     <ul class="filter-list" {% if settings.show_filter_type_closed %} style="display: none;" {% endif %}>
@@ -126,7 +126,7 @@
         {% endfor %}
     </div>
 
-    <button type="submit" class="filter-button">
+    <button type="submit" class="filter-button bg-[#2E324E]">
         Filtrar
     </button>
 

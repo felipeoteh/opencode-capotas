@@ -1,6 +1,6 @@
-<ol class="breadcrumb flex f-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+<ol class="breadcrumb flex f-wrap mb-4" itemscope itemtype="https://schema.org/BreadcrumbList">
 
-    <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <li class="breadcrumb-item flex align-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" class="t-color" href="/">
             <span itemprop="name">Home</span>
         </a>
@@ -10,7 +10,7 @@
     {% if breadcrumb %}
         {% for item in breadcrumb %}
 
-            <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <li class="breadcrumb-item flex align-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <a itemprop="item" class="t-color" href="{{ item.link }}" title="{{ item.name }}">
                     <span itemprop="name">{{ item.name }}</span>
                 </a>
@@ -24,14 +24,14 @@
 
     {% if pages.current == 'product' %}
 
-        <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="breadcrumb-item flex align-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <span itemprop="name">{{ product.name }}</span>
             <meta itemprop="position" content="{{ count }}" />
         </li>
 
     {% elseif pages.current == 'search' %}
 
-        <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="breadcrumb-item flex align-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <span itemprop="name">
                 {% if search.word %}
                     Resultados para a busca: {{ search.word }}
@@ -44,7 +44,7 @@
 
     {% else %}
 
-        <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="breadcrumb-item flex align-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <span itemprop="name">{{ category.name }}</span>
             <meta itemprop="position" content="{{ count }}" />
         </li>

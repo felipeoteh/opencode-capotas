@@ -666,10 +666,7 @@ footer:before{
 }
 
 .sidebar-category{
-  padding: 1rem !important;
-  margin-right: 1rem !important;
-  border: thin solid #d8d8d8;
-  border-radius: .5rem;
+  margin-right: 2rem !important;
 }
 
 .filter__title{
@@ -681,21 +678,15 @@ footer:before{
   display: flex !important;
   gap: .5rem !important;
   text-transform: initial !important;
-  padding-left: 3rem !important;
-  margin-bottom: 0 !important;
-  margin-top: 1rem;
 }
 
-.breadcrumb a{
-  font-size: .6rem !important;
-}
 
 .filter__item{
   display: flex;
   align-items: center;
 }
 
-.breadcrumb span + span:before{
+.breadcrumb li + li:before{
   content: "|" !important;
   display: flex !important;
   position: relative !important;
@@ -716,13 +707,8 @@ footer:before{
   gap: .5rem;
 }
 
-.breadcrumb span:last-child{
-  color: var(--secundary) !important;
-  font-size: .65rem !important;
-}
-
 .page-content:not(.not-padding){
-  padding: 1rem 3rem !important;
+  padding: 1rem !important;
 }
 
 .page-content:not(.not-padding) .container{
@@ -1001,8 +987,43 @@ footer:before{
   order: 2;
 }
 
+.md\:hidden{
+  display: none;
+}
+
+.slick-track{
+  margin-left: initial !important;
+}
+
+.filterMobile{
+  justify-content: flex-end !important;
+}
+
+#sidebar-category{
+  margin-bottom: 2rem;
+}
 
 @media(max-width: 768px){
+
+  #sidebar-category{
+    padding-right: 4rem;
+  }
+
+  .titleFilter{
+    margin-bottom: 2rem;
+  }
+
+  .filterMobile{
+    justify-content: center !important;
+  }
+
+  .breadcrumb{
+    justify-content: center;
+  }
+
+  .brands-home .mobile .slick-track a + a {
+    margin-left: .5rem;
+  }
 
   .main_menu{
     display: none;
@@ -1213,10 +1234,21 @@ footer:before{
   }
 
   .arrowMenu{
-    position: absolute;
+    position: absolute !important;
     right: .5rem;
     top: .5rem;
     transition: var(--transition);
+  }
+
+  .nav .list .second-level.openNivelDois{
+    position: relative;
+    top: initial;
+    padding: initial;
+    overflow-y: initial;
+    min-width: initial;
+    transform: translateY(5px);
+    opacity: 1;
+    visibility: visible;
   }
 
   .main_menu__nivel-dois.openNivelDois{

@@ -32,7 +32,18 @@
 
     <h2 class="text-2xl text-center font-bold my-4 color-[#2E324E] mb-4">Compre por Fabricante</h2>
 
-    <ul class="flex flex-wrap gap-4 items-center justify-between">
+    <ul class="hidden md:flex flex-wrap gap-4 items-center justify-between">
+        {% set brands = Brands({ "order": { "id": "asc" }}) %}
+        {% for brand in brands %}
+            <a href="{{ brand.slug }}">
+                <li>
+                    <img class="transition-all hover:shadow-xl" alt="{{ brand.name }}" src="{{ themePath }}img/virtualiti/fabricantes/{{ brand.name }}.png" >
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <ul class="mobile md:hidden">
         {% set brands = Brands({ "order": { "id": "asc" }}) %}
         {% for brand in brands %}
             <a href="{{ brand.slug }}">

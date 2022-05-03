@@ -3,17 +3,21 @@
 {% set phone = Translation('ag_telefone_1') %}
 {% set phone2 = Translation('ag_telefone_2') %}
 
-{% if settings.txtFooter %}
+{% if pages.current == 'home' %}
 
-    <div class="w-full max-w-screen-xl m-auto flex flex-col md:flex-row items-center justify-between text-white p-4 py-8 gap-12">
+    {% if settings.txtFooter %}
 
-        <img src="{{ themePath }}img/virtualiti/rodape-Logo_MAP-horizontal-cor.svg" alt="">
+        <div class="w-full max-w-screen-xl m-auto flex flex-col md:flex-row items-center justify-between text-white p-4 py-8 gap-12">
 
-        <p class="txtFooter text-[13px] text-[#707070]">
-            {{ settings.txtFooter }}
-        </p>
+            <img src="{{ themePath }}img/virtualiti/rodape-Logo_MAP-horizontal-cor.svg" alt="">
 
-    </div>
+            <p class="txtFooter text-[13px] text-[#707070]">
+                {{ settings.txtFooter }}
+            </p>
+
+        </div>
+
+    {% endif %}
 
 {% endif %}
 

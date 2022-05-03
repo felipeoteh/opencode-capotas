@@ -8,7 +8,7 @@
     {% set more_categories = null %}
 {% endif %}
 
-<nav class="nav">
+<nav class="nav py-4">
     <div class="container">
         <ul class="list flex md:gap-[4rem] {% if categories | length > 4 %} justify-between {% else %} justify-center {% endif %}">
 
@@ -23,15 +23,13 @@
                     </a>
                     
                     {% if category.children %}
-                    <ul class="sub-list second-level">
-                    
-                        <a href="{{ category.link }}" title="{{ category.name }}">{{ category.name }}</a>
+                    <ul class="sub-list second-level bg-primary">
 
                         {% for level2 in category.children %}
 
                             <li {% if level2.children %} class="sub" {% endif %}>
                                 
-                                <a href="{{ level2.link }}" title="{{ level2.name }}">{{ level2.name }}</a>
+                                <a href="{{ level2.link }}" class="text-white" title="{{ level2.name }}">{{ level2.name }}</a>
                             
                                 {% if level2.children %}
                                 <ul class="sub-list third-level">

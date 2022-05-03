@@ -35,8 +35,8 @@
             }
         </script>
 
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     
-
     </head>
     <body class="bg-[#F8F8F8]">
 
@@ -123,6 +123,8 @@
         {{ store.chat }}
         {{ googleTagManager.bottom(pages.current, tagManagerData) }}
 
+        <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
+
         <script>
 
             $(function(){
@@ -134,8 +136,8 @@
                     $(".menuBox").toggleClass("Open");
                 });
 
-                $(".boxMenuMobile .categoria-id.com-filho").each(function(){
-                    if($(this).find(".main_menu__nivel-dois").html()) {
+                $(".boxMenuMobile .first-level.sub").each(function(){
+                    if($(this).find(".sub-list.second-level").html()) {
                         $(this).append("<span class='arrowMenu'></span>");  
                     }
                 });
@@ -143,9 +145,77 @@
                 var handArrowMenuMobile = $(".boxMenuMobile .arrowMenu");
 
                 handArrowMenuMobile.bind("click", function(){
-                    $(this).closest(".categoria-id").find(".main_menu__nivel-dois").toggleClass("openNivelDois");
+                    $(this).closest(".first-level.sub").find(".sub-list.second-level").toggleClass("openNivelDois");
                     $(this).toggleClass("rotateArrow");
                 });
+
+                var handBrandsHome = $(".brands-home .mobile");
+                var handShowcases = $(".section-showcase .list-product");
+
+                handBrandsHome.slick({
+                    infinite: true,
+                    arrows: false,
+                    speed: 300,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                                settings: {}
+                            },
+                        {
+                            breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1
+                                }
+                            },
+                        {
+                            breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                    dots: true
+                                }
+                        }
+                    ]
+                });
+
+                handShowcases.slick({
+                    infinite: true,
+                    arrows: true,
+                    slidesToShow: 4,
+                    speed: 300,
+                    prevArrow: '<img class="cursor-pointer w-8 h-8 absolute top-[calc(50%-1rem)] z-10" src="http://images.tcdn.com.br/files/1088558/themes/7/img/virtualiti/seta-vitrines-esquerda.svg"/>',
+                    nextArrow: '<img class="cursor-pointer w-8 h-8 absolute right-0 top-[calc(50%-1rem)] z-10" src="http://images.tcdn.com.br/files/1088558/themes/7/img/virtualiti/seta-vitrines-direita.svg?90.83114197112107"/>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 4,
+                                    slidesToScroll: 1,
+                                    arrows: true
+                                }
+                            },
+                        {
+                            breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                    arrows: true
+                                }
+                            },
+                        {
+                            breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1,
+                                    dots: false,
+                                    arrows: true
+                                }
+                        }
+                    ]
+                });
+
+ 
 
             });
 

@@ -1,8 +1,8 @@
 {% set banner = banners[banner_id] %}
-{% set mobile = mobile | default(false) %}
+{% set mobile = mobile | default(true) %}
 
 {% if banner %}
-    <div class="container max-w-screen-xl m-auto">
+    <div class="container max-w-screen-xl m-auto bannerLine">
         <div class="banner-line {% if mobile %} mobile {% else %} desk {% endif %}">
 
             {% element 'snippets/banner' {

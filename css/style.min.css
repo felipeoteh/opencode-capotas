@@ -3789,7 +3789,6 @@ header .header-search-wrapper .input-search::placeholder {
 
 .banner-line {
     margin: 2.5rem 0;
-    display: none
 }
 
 .banner-line img {
@@ -6011,7 +6010,9 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 .product-wrapper .product-form .product-shipping {
-    margin-top: 1.5rem
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: thin solid #e9ecef;
 }
 
 .product-wrapper .product-form .product-shipping .produto-calcular-frete {
@@ -6036,7 +6037,6 @@ header .header-search-wrapper .input-search::placeholder {
 .product-wrapper .product-form .product-shipping .shipping-form {
     position: relative;
     max-width: 300px;
-    margin: 0 auto
 }
 
 .product-wrapper .product-form .product-shipping .input {
@@ -6044,9 +6044,9 @@ header .header-search-wrapper .input-search::placeholder {
     height: 42px;
     padding: 0 6.25rem 0 1.25rem;
     color: var(--color_font_medium);
-    border: 2px solid var(--color_gray_dark);
-    border-radius: 4px;
-    background-color: transparent
+    border: thin solid #B8B8B8;
+    border-radius: .25rem;
+    background-color: #fff;
 }
 
 .product-wrapper .product-form .product-shipping .input:focus {
@@ -6503,18 +6503,22 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 .product-tabs .tabs-content .payment-tab .option a:after {
-    content: "v";
+    content: "";
     position: absolute;
     top: calc(50% - 4px);
     right: 0;
     margin-left: .3125rem;
-
     font-size: .75rem;
     font-style: normal !important;
     font-weight: 400 !important;
     font-variant: normal !important;
     text-transform: none !important;
-    transition: .2s ease-out
+    transition: .2s ease-out;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-image: var(--arrow_select) !important;
+    background-size: 9.2px;
 }
 
 .product-tabs .tabs-content .payment-tab .option.show a:after {
@@ -6666,7 +6670,7 @@ header .header-search-wrapper .input-search::placeholder {
     }
 
     .product-tabs .tabs-content .tab-link-mobile:after {
-        content: "v";
+        content: "";
         position: absolute;
         top: 19px;
         right: 15px;
@@ -6676,7 +6680,12 @@ header .header-search-wrapper .input-search::placeholder {
         font-weight: 400 !important;
         font-variant: normal !important;
         text-transform: none !important;
-        transition: .2s ease-out
+        transition: .2s ease-out;
+        background-repeat: no-repeat;
+        background-image: var(--arrow_select) !important;
+        background-size: 9.2px;
+        width: 10px;
+        height: 10px;
     }
 
     .product-tabs .tabs-content .tab-link-mobile.active {

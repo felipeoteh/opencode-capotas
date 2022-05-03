@@ -1042,7 +1042,97 @@ footer:before{
   display: none;
 }
 
+.product-main-info{
+  margin-top: .5rem;
+  padding-bottom: .5rem;
+  border-bottom: thin solid #E9ECEF;
+  margin-bottom: .5rem;
+  color: #495057;
+}
+
+.product-wrapper .product-form .product-sku{
+  margin: 0 !important;
+  text-transform: initial !important;
+}
+
+.product-wrapper .product-form .product-tags .tag{
+  margin-left: 0;
+}
+
+
+@media(min-width:769px){
+
+  .newsFooterProduct{
+    flex-direction: row !important;
+    gap: 3rem !important;
+    padding: 1rem !important;
+  }
+
+  .newsFooterProduct .info{
+    text-align: left !important;
+  }
+
+  .newsFooterProduct form{
+    flex-direction: row !important;
+  }
+
+  .footerProduct{
+    flex-direction: row !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+
+  .footerProduct ul{
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+  }
+
+  .listTopProduct{
+    display: flex !important;
+  }
+
+  .topBarProduct{
+    justify-content: space-between !important;
+  }
+
+}
+
+.section-avaliacoes .prev,
+.section-avaliacoes .next{
+  display: none !important;
+}
+
+.page-product .page-content .container,
+.page-catalog .page-content .container{
+  max-width: 1280px !important;
+}
+
 @media(max-width: 768px){
+  
+  .bannerLine{
+    width: 48% !important;
+    padding: 0 !important;
+  }
+
+  .bannerLine .mobile{
+    margin: 0 !important;
+  }
+
+  .sub-list.second-level.bg-primary{
+    display: none !important;
+  }
+
+  .sub-list.second-level.bg-primary.openNivelDois{
+    display: block !important;
+  }
+
+  .openNivelDois li{
+    border: none !important;
+  }
+
+  .openNivelDois{
+    background: transparent !important;
+  }
 
   .detailsHeader{
     display: flex;
@@ -1063,12 +1153,12 @@ footer:before{
     align-items: flex-start !important;
   }
 
-  .product-wrapper .product-form .product-tags,
+  /* .product-wrapper .product-form .product-tags,
   .product-shipping{
     margin-top: 1rem;
     padding-top: .5rem;
     border-top: thin solid #ccc;
-  }
+  } */
 
   .product-wrapper .product-form .product-shipping .shipping-form{
     max-width: initial;

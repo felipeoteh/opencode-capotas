@@ -86,9 +86,47 @@
                 <div class="message">Atualizando informa&ccedil;&otilde;es ...</div>
             </div>
 
-            
-
             {% set firstProgressiveDiscount = ProgressiveDiscounts | first %}
+
+
+            <h1 class="product-name">
+                {{ product.name }}
+            </h1>
+
+            {% if (product.reference and settings.show_reference) or (settings.show_product_brand and product.brand) %}
+                <div class="product-main-info">
+
+                    {% if product.reference and settings.show_reference %}
+                        <div class="product-sku">
+                            Referência: <span class="product-sku ref" id="product-reference" data-url="/mvc/store/product/variant_reference/?loja={{ store.id }}">{{ product.reference }}</span>
+                        </div>
+                    {% endif %}
+
+                    {% if settings.show_product_brand and product.brand %}
+                        <div class="product-brand">
+                            Marca: {{ product.brand }}
+                        </div>
+                    {% endif %}
+                    {% if product.model %}
+                        <div class="product-brand">
+                            Modelo: {{ product.model }}
+                        </div>
+                    {% endif %}
+                    {% if not product.upon_request and product.available and productHelper.wishlist() %}
+                        <div class="wishlist" title="Adicionar aos favoritos">
+                            {{ productHelper.wishlist() }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
+            {% if settings.show_product_review %}
+                {% element 'snippets/rating' {
+                    'review': product.ranking,
+                    'total' : true
+                } %}
+            {% endif %}
 
             {% if product.featured or product.free_shipping or product.new or discount or extra_tag or firstProgressiveDiscount %}
                 <div class="product-tags">
@@ -120,46 +158,7 @@
                 </div>
             {% endif %}
 
-            <h1 class="product-name">
-                {{ product.name }}
-            </h1>
-
-            {% if (product.reference and settings.show_reference) or (settings.show_product_brand and product.brand) %}
-                <div class="product-main-info">
-
-                    
-
-                    {% if product.reference and settings.show_reference %}
-                        <div class="product-sku">
-                            Ref: <span class="product-sku ref" id="product-reference" data-url="/mvc/store/product/variant_reference/?loja={{ store.id }}">{{ product.reference }}</span>
-                        </div>
-                    {% endif %}
-
-                    {% if settings.show_product_brand and product.brand %}
-                        <div class="product-brand">
-                            Marca: {{ product.brand }}
-                        </div>
-                    {% endif %}
-                    {% if product.model %}
-                        <div class="product-brand">
-                            Modelo: {{ product.model }}
-                        </div>
-                    {% endif %}
-                    {% if not product.upon_request and product.available and productHelper.wishlist() %}
-                        <div class="wishlist" title="Adicionar aos favoritos">
-                            {{ productHelper.wishlist() }}
-                        </div>
-                    {% endif %}
-
-                </div>
-            {% endif %}
-
-            {% if settings.show_product_review %}
-                {% element 'snippets/rating' {
-                    'review': product.ranking,
-                    'total' : true
-                } %}
-            {% endif %}
+            
 
             {% if product.additional_message %}
                 <div class="product-additional-message">
@@ -274,9 +273,7 @@
                         <div class="tray-buy-button">
                             {{ productHelper.form() }}
                         </div>
-                        <span class="message">
-                            * Aqui sua compra &eacute; 100% segura, compre com tranquilidade.
-                        </span>
+                        <span class="message"></span>
                     </div>
 
                 </form>
@@ -284,19 +281,16 @@
                 {% if productHelper.shipping() %}
                     <div class="product-shipping">
 
-                        {{ productHelper.shipping() }}
+                        {{ productHelper.shipping() }}   
 
-                        <span class="info">
-                            <i class="icon icon-truck"></i>
-                            Frete e prazo de entrega
-                        </span>
+                        <p class="mb-2 mt-2 text-[12px]">Calcular seu frete:</p>
 
                         <form class="shipping-form">
                             <div class="form-input">
                                 <label for="zip" class="sr-only">CEP</label>
                                 <input type="tel" class="input zip-code-mask" id="zip" name="zip" minlength="9" maxlength="9" placeholder="Informe seu cep" required>
                             </div>
-                            <button type="submit" class="submit-shipping">
+                            <button type="submit" class="submit-shipping rounded">
                                 Calcular
                             </button>
                         </form>

@@ -1488,13 +1488,12 @@ a.botao-simular-frete {
 }
 
 .botao-commerce:not(.botao-sob-consulta):not(.botao-nao_indisponivel) {
-    padding: .625rem 1.25rem;
-    font-family: var(--font_family);
-    font-size: .75rem;
+    padding: .5rem 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color_font_inverted) !important;
-    background-color: var(--color_secondary_medium);
-    border-radius: 4px;
+    background-color: var(--secundary);
+    border-radius: .25rem;
     transition: .2s ease-out;
     text-transform: uppercase
 }
@@ -1722,12 +1721,12 @@ input.text,
 select.select,
 select.text {
     padding: 0 1.25rem;
-    height: 52px;
+    height: 40px;
     font-size: .875rem;
     line-height: 1.4;
     color: var(--color_font_medium);
-    border: 1px solid var(--color_gray_dark);
-    border-radius: 3px
+    border: 1px solid #B8B8B8;
+    border-radius: .25rem;
 }
 
 input.text.obriga,
@@ -1748,7 +1747,7 @@ select.text {
     background-image: var(--arrow_select) !important;
     background-size: 9.2px;
     background-position: calc(100% - 10px) 50% !important;
-    padding-right: 22px !important;
+    padding-right: 30px !important;
     cursor: pointer
 }
 
@@ -5142,11 +5141,11 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 .product-wrapper .product-box .product-gallery {
-    width: calc(100% - 470px);
+    width: calc(100% - 627px);
     padding-right: 2.5rem;
     position: relative;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .tag-discount {
@@ -5172,8 +5171,7 @@ header .header-search-wrapper .input-search::placeholder {
     width: 100%;
     height: 100%;
     max-height: 588px;
-    border: 1px solid var(--color_gray_medium);
-    border-radius: 6px
+    border-radius: .25rem;
 }
 
 .product-wrapper .product-gallery .product-images .image {
@@ -5262,10 +5260,8 @@ header .header-search-wrapper .input-search::placeholder {
 
 .product-wrapper .product-box .product-form {
     position: relative;
-    width: 470px;
-    padding: 2.5rem 1.875rem;
-    border: 1px solid var(--color_gray_medium);
-    border-radius: 6px
+    padding: 1rem;
+    flex: 1;
 }
 
 .product-wrapper .product-form .product-tags {
@@ -5291,7 +5287,7 @@ header .header-search-wrapper .input-search::placeholder {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color_font_dark);
-    text-align: center
+    text-align: left;
 }
 
 .product-wrapper .product-form .product-main-info {
@@ -5347,10 +5343,6 @@ header .header-search-wrapper .input-search::placeholder {
 
 .product-wrapper .product-form .product-additional-message br {
     display: none
-}
-
-.product-wrapper .product-form .product-variants {
-    margin: 1.25rem 0 2.5rem
 }
 
 .product-wrapper .product-form .variant-error {
@@ -5816,10 +5808,6 @@ header .header-search-wrapper .input-search::placeholder {
     font-size: .75rem
 }
 
-.product-wrapper .product-form .actions {
-    margin-top: 1.25rem
-}
-
 .product-wrapper #product-form-box {
     display: flex;
     align-items: center;
@@ -5849,10 +5837,6 @@ header .header-search-wrapper .input-search::placeholder {
     color: var(--color_font_light)
 }
 
-.product-wrapper .product-form #quant:focus {
-    box-shadow: inset 0 0 8px var(--color_font_light)
-}
-
 @media (max-width:500px) {
     .product-wrapper .product-form #quant {
         font-size: 16px
@@ -5865,18 +5849,12 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 .product-wrapper .product-form #button-buy {
-    height: 56px;
+    padding: 1rem 1.5rem;
     width: 100%;
-    padding: 0
 }
 
 .product-wrapper .product-form #button-buy span {
-    font-size: 0
-}
-
-.product-wrapper .product-form #button-buy span:before {
-    content: "COMPRAR PRODUTO";
-    font: 700 .87rem var(--font_family)
+    font-size: 2rem;
 }
 
 .product-wrapper .product-form .actions .message {
@@ -6077,17 +6055,17 @@ header .header-search-wrapper .input-search::placeholder {
 
 .product-wrapper .product-form .product-shipping .submit-shipping {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 42px;
+    top: 6px;
+    right: 7px;
+    height: 30px;
     padding: 0 1.875rem 0 1.25rem;
-    font-family: var(--font_family);
     font-size: .75rem;
     font-weight: 600;
     text-transform: uppercase;
-    background-color: transparent;
-    color: var(--color_primary_medium);
-    transition: .2s ease-out
+    background-color: var(--primary);
+    color: #fff;
+    transition: .2s ease-out;
+    font-family: "Inter", sans-serif;
 }
 
 .product-wrapper .product-form .product-shipping .submit-shipping:hover {
@@ -6206,13 +6184,6 @@ header .header-search-wrapper .input-search::placeholder {
         width: 70px
     }
 
-    .product-wrapper .product-box .product-form {
-        width: 100%;
-        max-width: 500px;
-        margin: 2.5rem auto 0;
-        padding: 2.5rem 1.25rem
-    }
-
     .product-wrapper .product-form .product-tags .tag {
         width: 40%;
         max-width: 160px
@@ -6235,7 +6206,7 @@ header .header-search-wrapper .input-search::placeholder {
 
 @media (max-width:460px) {
     .product-wrapper .product-form #bt_comprar {
-        max-width: 57%
+        max-width: 100%
     }
 }
 
@@ -6532,12 +6503,12 @@ header .header-search-wrapper .input-search::placeholder {
 }
 
 .product-tabs .tabs-content .payment-tab .option a:after {
-    content: "\ea01";
+    content: "v";
     position: absolute;
     top: calc(50% - 4px);
     right: 0;
     margin-left: .3125rem;
-    font-family: go !important;
+
     font-size: .75rem;
     font-style: normal !important;
     font-weight: 400 !important;
@@ -6695,12 +6666,11 @@ header .header-search-wrapper .input-search::placeholder {
     }
 
     .product-tabs .tabs-content .tab-link-mobile:after {
-        content: "\ea01";
+        content: "v";
         position: absolute;
         top: 19px;
         right: 15px;
         margin-left: .3125rem;
-        font-family: go !important;
         font-size: .75rem;
         font-style: normal !important;
         font-weight: 400 !important;
